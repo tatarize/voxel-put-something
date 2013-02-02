@@ -1,0 +1,19 @@
+{
+  "name": "voxel-put-something",
+  "version": "0.0.1",
+  "description": "place generated things",
+  "main": "index.js",
+  "devDependencies": {
+    "voxel-engine": "~0.1.8",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tatarize/voxel-put-something"
+  },
+  "keywords": [
+    "voxel",
+    "game",
+    "tree",
+    "forest"
+  ],
+}
