@@ -1,21 +1,21 @@
 {
   "name": "voxel-put-something",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "place generated things",
   "main": "index.js",
   "devDependencies": {
     "voxel-engine": "~0.1.8"
-  }
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/tatarize/voxel-put-something"
-  }
+  },
   "keywords": [
     "voxel",
     "game",
     "tree",
     "forest"
-  ]
+  ],
   "readme": "voxel-put-something\n===================\n\nput something in your in the voxeljs world",
   "readmeFilename": "README.md",
   "_id": "voxel-put-something@0.0.1",

@@ -25,8 +25,8 @@ module.exports = function (game, opts) {
     
     this.put = function(thing,options) {
         if (!options) options = {};
-        if (options.position) setPosition(opts.position);
-        else { randomLocation(); }
+        if (options.position) setPosition(options.position);
+        else {randomLocation();}
         if (!options.scale) options.scale = 1;
         
         var size = game.cubeSize * options.scale;
@@ -52,14 +52,22 @@ module.exports = function (game, opts) {
     }
     
     function surface() {
-        //This function generally assumes there is not air under the surface of the ground.
+        var initialy = pos[1];
         if (occupied(pos[1])) {
-            for (; occupied(pos[1]); pos[1] += voxels.cubeSize);
-            if (pos[1] >= ymax) return;
+            for (; occupied(pos[1]); pos[1] += voxels.cubeSize) {
+                if ((pos[1] >= ymax) || (pos[1] <= ymin)) {
+                    pos[1] = initialy;
+                    return;
+                }
+            }
         } //if something exists, move spawn location up.
         else {
-            for (; !occupied(pos[1]); pos[1] -= voxels.cubeSize);
-            if (pos[1] <= ymin) return;
+            for (; !occupied(pos[1]); pos[1] -= voxels.cubeSize) {
+                if ((pos[1] >= ymax) || (pos[1] <= ymin)) {
+                    pos[1] = initialy;
+                    return;
+                }
+            }
         } //if something doesn't exist, move spawn location down.'
     }
     
