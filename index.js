@@ -41,11 +41,7 @@ module.exports = function (game, opts) {
                 x = xoffset + point[0] * size;
                 y = yoffset + point[1] * size;
                 z = zoffset + point[2] * size;
-                set({
-                    x: x,
-                    y: y, 
-                    z: z
-                }, (point[3])?point[3]:options.materials);
+                game.setBlock([x,y,z], (point[3])?point[3]:options.materials);
             })
         })
         flush();
@@ -87,17 +83,6 @@ module.exports = function (game, opts) {
             y: y, 
             z: pos[2]
             });
-    }
-    
-    function set (posxyz, value) {
-        var ex = voxels.voxelAtPosition(posxyz);
-        if (ex) true;
-        voxels.voxelAtPosition(posxyz, value);
-        var c = voxels.chunkAtPosition(posxyz);
-        var key = c.join('|');
-        if (!updated[key] && voxels.chunks[key]) {
-            updated[key] = voxels.chunks[key];
-        }
     }
     
     function flush() {
